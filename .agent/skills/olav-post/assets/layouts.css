@@ -1,0 +1,163 @@
+/* OLAV Slide Layout System — 20 layouts
+ * Each layout is a self-contained CSS block.
+ * Usage: <div class="layout-NAME">...</div>
+ */
+
+/* ── Base ── */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#0a0a1a;color:#e8e8ff;font-family:'Inter','Noto Sans CJK SC',sans-serif;-webkit-font-smoothing:antialiased}
+body{position:relative}
+
+/* Chrome */
+.bar{position:absolute;top:0;left:0;width:4px;height:100%;background:#00d4aa;z-index:10}
+.badge{position:absolute;top:60px;right:60px;width:52px;height:52px;border-radius:50%;background:#00d4aa;display:flex;align-items:center;justify-content:center;color:#0a0a1a;font-size:22px;font-weight:700;z-index:10}
+.brand{position:absolute;bottom:50px;right:60px;font-size:14px;color:#555577;letter-spacing:.1em;z-index:10}
+.dots{position:absolute;bottom:44px;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:10}
+.dot{width:8px;height:8px;border-radius:50%;background:#333355}
+.dot.a{background:#00d4aa}
+
+/* Typography */
+.h1{font-size:68px;font-weight:800;line-height:1.15;letter-spacing:-.02em}
+.h2{font-size:46px;font-weight:700;line-height:1.2;margin-bottom:32px}
+.h3{font-size:36px;font-weight:600;line-height:1.3;margin-bottom:12px}
+.sub{font-size:30px;color:#9999cc;line-height:1.5}
+.line{width:160px;height:4px;background:#00d4aa}
+.bullet{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+.bullet-m{color:#00d4aa;font-size:22px;flex-shrink:0;margin-top:5px}
+.bullet-t{font-size:28px;line-height:1.5;color:#ccccdd}
+
+/* ── 01 title-card ── */
+.layout-ctr{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;height:100%;padding:0 120px}
+
+/* ── 02 split — left text + right image ── */
+.layout-split{display:flex;gap:60px;align-items:center;height:100%;padding:100px 100px}
+.split-left{flex:0 0 48%}
+.split-right{flex:1;display:flex;align-items:center;justify-content:center}
+.split-right img{max-width:100%;max-height:70vh;object-fit:contain;border-radius:16px}
+
+/* ── 03 process-steps — horizontal numbered chain ── */
+.layout-process{display:flex;flex-direction:column;justify-content:center;height:100%;padding:100px 100px}
+.process-row{display:flex;gap:24px;margin-top:36px;align-items:flex-start}
+.process-step{flex:1;text-align:center}
+.process-num{width:64px;height:64px;border-radius:50%;background:#00d4aa;display:flex;align-items:center;justify-content:center;color:#0a0a1a;font-size:28px;font-weight:800;margin:0 auto 16px}
+.process-label{font-size:22px;color:#ccccdd;line-height:1.5;max-width:200px;margin:0 auto}
+.process-arrow{color:#00d4aa88;font-size:32px;align-self:center;margin-top:-20px}
+
+/* ── 04 metric-cards — KPI row ── */
+.layout-metrics{display:flex;flex-direction:column;justify-content:center;height:100%;padding:100px 100px}
+.metrics-row{display:flex;gap:28px;margin-top:36px}
+.metric-card{flex:1;background:#111133;border:1px solid #222244;border-radius:16px;padding:32px 28px;text-align:center}
+.metric-value{font-size:56px;font-weight:800;color:#00d4aa;line-height:1;margin-bottom:12px}
+.metric-label{font-size:20px;color:#9999cc;line-height:1.4}
+
+/* ── 05 quote ── */
+.layout-quote{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:0 150px;text-align:center}
+.quote-mark{font-size:120px;color:#00d4aa33;line-height:1;margin-bottom:-40px;font-family:Georgia,serif}
+.quote-text{font-size:42px;font-weight:600;line-height:1.4;font-style:italic;color:#e8e8ff;max-width:1100px}
+.quote-attr{font-size:24px;color:#9999cc;margin-top:32px}
+
+/* ── 06 feature-grid — 2×2 or 3×2 cards ── */
+.layout-features{display:flex;flex-direction:column;justify-content:center;height:100%;padding:100px 100px}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}
+.feature-card{background:#111133;border:1px solid #222244;border-radius:16px;padding:32px 28px}
+.feature-icon{font-size:40px;margin-bottom:16px}
+.feature-title{font-size:28px;font-weight:700;margin-bottom:12px}
+.feature-desc{font-size:22px;color:#9999cc;line-height:1.5}
+
+/* ── 07 comparison ── */
+.layout-compare{display:flex;flex-direction:column;justify-content:center;height:100%;padding:100px 100px}
+.comp-row{display:flex;gap:40px;margin-top:32px}
+.comp-col{flex:1;border-radius:14px;overflow:hidden;border:2px solid transparent}
+.comp-hdr{padding:18px 28px;font-size:32px;font-weight:700}
+.comp-body{padding:28px}
+.comp-body div{display:flex;gap:12px;align-items:center;margin-bottom:14px;font-size:26px;color:#ccccdd}
+
+/* ── 08 timeline — chronological chain ── */
+.layout-timeline{display:flex;flex-direction:column;justify-content:center;height:100%;padding:100px 120px}
+.timeline-list{position:relative;margin-top:36px;padding-left:40px}
+.timeline-list::before{content:'';position:absolute;left:19px;top:0;bottom:0;width:2px;background:#00d4aa44}
+.timeline-item{position:relative;margin-bottom:28px;padding-left:32px}
+.timeline-dot{position:absolute;left:-30px;top:8px;width:14px;height:14px;border-radius:50%;background:#00d4aa}
+.timeline-title{font-size:26px;font-weight:600;margin-bottom:6px}
+.timeline-desc{font-size:22px;color:#9999cc;line-height:1.5}
+
+/* ── 09 big-number ── */
+.layout-bignum{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center}
+.bignum-n{font-size:200px;font-weight:800;color:#00d4aa;line-height:1;letter-spacing:-.04em;margin-bottom:12px}
+.bignum-u{font-size:40px;color:#9999cc;margin-bottom:28px}
+.bignum-d{font-size:36px;line-height:1.4;max-width:800px}
+
+/* ── 10 code-window ── */
+.layout-code{display:flex;flex-direction:column;justify-content:center;height:100%;padding:100px 100px}
+.codebox{background:#0d1117;border:1px solid #222244;border-radius:12px;padding:32px;font-family:'JetBrains Mono',monospace;font-size:22px;line-height:1.7;color:#c9d1d9;max-width:850px;margin-top:28px}
+.codebox .pr{color:#00d4aa}
+.codebox .cm{color:#8b949e}
+
+/* ── 11 mermaid — centered diagram ── */
+.layout-mermaid{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:80px 100px}
+.layout-mermaid img{max-width:85%;max-height:55vh;margin:32px 0}
+.layout-mermaid .mermaid-caption{font-size:22px;color:#7777aa}
+
+/* ── 12 security-layers — vertical 7-layer stack ── */
+.layout-layers{display:flex;gap:48px;align-items:center;height:100%;padding:80px 100px}
+.layers-text{flex:0 0 40%}
+.layers-stack{flex:1;display:flex;flex-direction:column;gap:8px}
+.layer-row{display:flex;align-items:center;gap:16px;padding:12px 20px;background:#111133;border-radius:8px;border-left:4px solid #00d4aa}
+.layer-num{font-size:22px;font-weight:700;color:#00d4aa;min-width:28px}
+.layer-name{font-size:24px;color:#ccccdd}
+
+/* ── 13 two-column text ── */
+.layout-twocol{display:flex;gap:60px;height:100%;padding:100px 100px;align-items:flex-start;justify-content:center}
+.twocol-left,.twocol-right{flex:1}
+.twocol-left h3,.twocol-right h3{margin-bottom:20px}
+
+/* ── 14 cta-split ── */
+.layout-cta-split{display:flex;align-items:center;height:100%;padding:100px 100px;gap:60px}
+.cta-text{flex:1}
+.cta-text .h1{font-size:72px;margin-bottom:24px}
+.cta-text .cta-btn{display:inline-block;margin-top:32px;padding:18px 40px;background:#00d4aa;color:#0a0a1a;border-radius:12px;font-size:28px;font-weight:700}
+.cta-visual{flex:1;display:flex;align-items:center;justify-content:center}
+.cta-visual img{max-width:100%;max-height:60vh;border-radius:16px}
+
+/* ── 15 numbered-list ── */
+.layout-numbered{display:flex;flex-direction:column;justify-content:center;height:100%;padding:100px 120px}
+.num-item{display:flex;gap:28px;align-items:flex-start;margin-bottom:24px}
+.num-badge{min-width:52px;height:52px;border-radius:50%;background:#111133;border:2px solid #00d4aa;display:flex;align-items:center;justify-content:center;color:#00d4aa;font-size:24px;font-weight:700;flex-shrink:0}
+.num-text h3{font-size:28px;font-weight:600;margin-bottom:6px}
+.num-text p{font-size:22px;color:#9999cc;line-height:1.5}
+
+/* ── 16 hero-with-cards ── */
+.layout-hero-cards{display:flex;flex-direction:column;justify-content:center;height:100%;padding:80px 100px}
+.hero-head{text-align:center;margin-bottom:48px}
+.hero-cards-row{display:flex;gap:28px}
+.hero-card{flex:1;background:#111133;border:1px solid #222244;border-radius:16px;padding:32px;text-align:center}
+.hero-card-icon{font-size:48px;margin-bottom:16px}
+.hero-card h3{font-size:28px;margin-bottom:8px}
+.hero-card p{font-size:20px;color:#9999cc}
+
+/* ── 17 single-stat ── */
+.layout-stat{display:flex;align-items:center;justify-content:center;height:100%;padding:0 120px;gap:80px}
+.stat-big{font-size:180px;font-weight:800;color:#00d4aa;line-height:1;letter-spacing:-.04em;flex-shrink:0}
+.stat-info h3{font-size:42px;margin-bottom:16px}
+.stat-info p{font-size:26px;color:#9999cc;line-height:1.5;max-width:600px}
+
+/* ── 18 problem-solution ── */
+.layout-probsol{display:flex;flex-direction:column;justify-content:center;height:100%;padding:100px 100px}
+.probsol-split{display:flex;gap:40px;margin-top:32px}
+.probsol-left,.probsol-right{flex:1;border-radius:16px;padding:36px}
+.probsol-left{background:#1a0a0a;border:2px solid #ff6b6b33}
+.probsol-right{background:#0a1a1a;border:2px solid #00d4aa33}
+.probsol-hdr{font-size:32px;font-weight:700;margin-bottom:24px}
+.probsol-item{display:flex;gap:12px;margin-bottom:16px;font-size:24px;color:#ccccdd}
+
+/* ── 19 diagram-full ── */
+.layout-diagram-full{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;padding:60px 80px}
+.layout-diagram-full img{max-width:90%;max-height:65vh;object-fit:contain;margin:24px 0}
+
+/* ── 20 annotation — code/terminal with callout bubbles ── */
+.layout-annotated{display:flex;gap:48px;align-items:center;height:100%;padding:100px 100px}
+.ann-code{flex:1}
+.ann-notes{flex:0 0 380px;display:flex;flex-direction:column;gap:20px}
+.ann-note{border-left:3px solid #00d4aa;padding:8px 0 8px 20px}
+.ann-note h4{font-size:22px;color:#00d4aa;margin-bottom:6px}
+.ann-note p{font-size:18px;color:#9999cc;line-height:1.5}

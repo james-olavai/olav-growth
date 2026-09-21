@@ -1,0 +1,57 @@
+[
+  {
+    "id": "comfyui-bg-tech-dark-1",
+    "file": "comfyui/bg-tech-dark_01.png",
+    "tags": [
+      "bg",
+      "tech",
+      "dark",
+      "circuit"
+    ],
+    "prompt": "abstract dark technology background, glowing green neon lines, circuit board pattern, clean minimal professional"
+  },
+  {
+    "id": "comfyui-bg-server-dark-2",
+    "file": "comfyui/bg-server-dark_02.png",
+    "tags": [
+      "bg",
+      "server",
+      "dark",
+      "datacenter"
+    ],
+    "prompt": "dark server room background, blue ambient lighting, rows of servers, depth of field, professional"
+  },
+  {
+    "id": "comfyui-bg-network-topology-3",
+    "file": "comfyui/bg-network-topology_03.png",
+    "tags": [
+      "bg",
+      "network",
+      "topology",
+      "dark"
+    ],
+    "prompt": "abstract network topology, glowing nodes connected by lines, dark background, neon teal and blue, clean"
+  },
+  {
+    "id": "comfyui-bg-hex-dark-4",
+    "file": "comfyui/bg-hex-dark_04.png",
+    "tags": [
+      "bg",
+      "hex",
+      "dark",
+      "geometric"
+    ],
+    "prompt": "dark abstract geometric pattern, subtle hex grid, professional tech aesthetic, very dark navy background, subtle green accent"
+  },
+  {
+    "id": "comfyui-bg-gradient-dark-5",
+    "file": "comfyui/bg-gradient-dark_05.png",
+    "tags": [
+      "bg",
+      "gradient",
+      "dark",
+      "minimal"
+    ],
+    "prompt": "clean minimalist gradient, deep navy to dark teal, smooth, subtle, no shapes, professional background"
+  }
+]

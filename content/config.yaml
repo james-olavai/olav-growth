@@ -1,0 +1,46 @@
+# docs-kb 扫描与分类规则配置 (Content Vault)
+scan_dirs:
+  - "campaigns"
+  - "candidate_signals"
+
+doc_type_rules:
+  - ["campaigns", "marketing-post"]
+  - ["candidate_signals", "candidate-signal"]
+
+classifiable_doc_types:
+  - marketing-post
+  - campaign-brief
+  - candidate-signal
+
+categories:
+  signals:
+    growth-tactics:
+      - "获客"
+      - "转化"
+      - "增长"
+      - "漏斗"
+      - "SEO"
+      - "GEO"
+    social-media:
+      - "小红书"
+      - "xhs"
+      - "linkedin"
+      - "twitter"
+      - "thread"
+      - "爆款"
+    product-launch:
+      - "发布"
+      - "launch"
+      - "v1.0"
+      - "新功能"
+    content-ops:
+      - "去油"
+      - "选题"
+      - "卡片"
+      - "排期"
+      - "自动化"
+
+confidence_thresholds:
+  high_min_ratio: 0.4
+  high_min_margin: 2.0
+  min_hits: 2

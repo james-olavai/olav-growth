@@ -1,0 +1,14 @@
+#!/bin/sh
+# Supervised background service: Bridges external 0.0.0.0:9222 -> internal 127.0.0.1:9223
+
+echo "[CDP-BRIDGE] 🌉 Launching CDP proxy daemon on 0.0.0.0:9222 -> 127.0.0.1:9223..."
+
+# Wait briefly for socat to be installed by cont-init
+while ! command -v socat >/dev/null 2>&1; do
+    sleep 1
+done
+
+# Keep proxy running with auto-reconnect
+while true; do
+    socat TCP-LISTEN:9222,fork,reuseaddr TCP:127.0.0.1:9223 2>/dev/null || sleep 1
+done

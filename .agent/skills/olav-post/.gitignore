@@ -1,0 +1,9 @@
+# olav-post's own repo — operational marketing output stays local, never
+# published (see root ownership_manifest.yaml + CLAUDE.md). Only skills/ and
+# this README are published.
+/archive/
+/reports/
+/images/
+/scripts/
+/marketing-metrics.json
+/campaign-plan.md

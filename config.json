@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project_name": "olav-growth",
+  "version": "1.0.0",
+  "brand": {
+    "name": "Olav AI",
+    "sot_file": "content/BUSINESS-SOT.md",
+    "memory_file": "content/memory.md"
+  },
+  "trend_radar": {
+    "default_geos": [
+      "US",
+      "TW",
+      "SG"
+    ],
+    "hn_types": [
+      "top",
+      "show"
+    ],
+    "scan_limit_per_source": 10,
+    "filter_entertainment_noise": true
+  },
+  "content_factory": {
+    "default_language": "zh",
+    "visual_ratio": "3:4",
+    "card_theme": "dark_tech",
+    "few_shot_memory_enabled": true,
+    "active_platforms": [
+      "xhs",
+      "linkedin",
+      "x",
+      "blog",
+      "instagram",
+      "pinterest"
+    ]
+  },
+  "distribution": {
+    "tier1_api_enabled": true,
+    "default_api_channel": "postiz",
+    "high_risk_gatekeeper_channels": [
+      "xhs",
+      "wechat"
+    ],
+    "notify_gatekeeper": {
+      "channel": "telegram",
+      "enabled": false
+    }
+  },
+  "paths": {
+    "vault_root": "content",
+    "campaigns": "content/campaigns",
+    "candidate_signals": "content/candidate_signals",
+    "reflections": "content/reflections",
+    "templates": "content/templates"
+  }
+}

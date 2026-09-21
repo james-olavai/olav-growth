@@ -1,0 +1,27 @@
+services:
+  marketing-browser:
+    image: lscr.io/linuxserver/chromium:latest
+    container_name: marketing-browser
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined # Required for Chromium sandbox
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      # Optional Web GUI Basic Auth (set BROWSER_USERNAME / BROWSER_PASSWORD in .env if exposing to network)
+      - CUSTOM_USER=${BROWSER_USERNAME:-}
+      - PASSWORD=${BROWSER_PASSWORD:-}
+      # CLI flags passed to Chromium inside container
+      - CHROME_CLI=--remote-allow-origins=* --no-first-run --no-default-browser-check
+    volumes:
+      # Persistent host directory for cookies, local storage, extensions and logins
+      - ./chrome-profile:/config
+      # Custom startup hooks to install socat and manage CDP bridge daemon
+      - ./custom-cont-init.d:/custom-cont-init.d:ro
+      - ./custom-services.d:/custom-services.d:ro
+    ports:
+      - "${BROWSER_HTTP_BIND:-0.0.0.0}:3000:3000"   # Web GUI (HTTP)
+      - "${BROWSER_HTTPS_BIND:-0.0.0.0}:3001:3001"  # Web GUI (HTTPS)
+      - "127.0.0.1:9222:9222" # CDP Remote Debugging (Agent / Chrome DevTools MCP)
+    shm_size: "2gb"           # Prevents Chromium from crashing on heavy DOM/media

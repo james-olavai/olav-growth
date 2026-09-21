@@ -1,0 +1,62 @@
+[
+  {
+    "id": "truth_teller",
+    "name": "打假避坑型 (The Truth-Teller)",
+    "description": "当全网都在跟风热议或神话某个热门产品/概念时，以一线实测视角指出其被忽视的致命隐患与成本",
+    "trigger_condition": "当突发热点是某项被广泛吹捧的新技术、爆款工具或行业新趋势时",
+    "hook_formula": "全网都在吹【{trend_keyword}】，实测7天后，我发现了这3个致命缺陷",
+    "narrative_arc": [
+      "1. 肯定该热点的火爆程度与表面优点（避免显得为了黑而黑）",
+      "2. 抛出一线实测的硬核缺陷数据（成本飙升、风控封禁、幻觉漏洞）",
+      "3. 引入自品牌的稳健解决方案作为对比（单一事实源、合规风控）",
+      "4. 呼吁同行理性看待，领取落地自查手册"
+    ],
+    "card_badge": "一线实测",
+    "visual_theme": "dark_tech"
+  },
+  {
+    "id": "rescuer",
+    "name": "平替救火型 (The Rescuer)",
+    "description": "当行业知名竞品或大厂突发宕机、恶意涨价、限制免费额度或封禁用户时，以极速救火姿态提供平替迁移方案",
+    "trigger_condition": "突发负面新闻、竞品涨价、服务下架、平台风控大收紧事件",
+    "hook_formula": "【{trend_keyword}】刚刚突发变动！教你用开源方案10分钟无缝平替",
+    "narrative_arc": [
+      "1. 10秒交代突发事件对行业/用户的毁灭性影响",
+      "2. 痛点共鸣：我们不能把身家性命绑在单一商业黑盒上",
+      "3. 3步迁移方案：如何用自建/开源架构在今天之内完成替换",
+      "4. 交付一键部署脚本或迁移配置"
+    ],
+    "card_badge": "紧急救火",
+    "visual_theme": "cyber_blue"
+  },
+  {
+    "id": "architect",
+    "name": "底层架构深扒型 (The Architect)",
+    "description": "某独立项目或新团队一夜爆火，剥离其表面营销运气，拆解其真正可复制的底层工程与商业飞轮",
+    "trigger_condition": "某产品登顶 Product Hunt / App Store、某初创公司高速增长事件",
+    "hook_formula": "深度拆解：为什么【{trend_keyword}】能一夜爆火？扒开它的底层架构",
+    "narrative_arc": [
+      "1. 晒出其惊人的爆发数据与破圈现象",
+      "2. 深度拆解：它究竟做对了哪三个底层技术/产品决策",
+      "3. 商业启示：独立开发者与成长团队如何将这套架构复用到自己的业务中",
+      "4. 交付架构复刻图与核心工具清单"
+    ],
+    "card_badge": "架构深扒",
+    "visual_theme": "emerald_growth"
+  },
+  {
+    "id": "satirist",
+    "name": "借梗吐槽共鸣型 (The Satirist)",
+    "description": "借由全网广泛流传的热梗、行业段子或社会情绪，自嘲式反映行业真实日常，极大促进转发",
+    "trigger_condition": "全网病毒式热梗、大厂八卦、行业打工人情绪共振事件",
+    "hook_formula": "看完今天关于【{trend_keyword}】的热搜，做实干的同行直接笑不出来了……",
+    "narrative_arc": [
+      "1. 幽默引入全网热梗，建立瞬间共鸣",
+      "2. 用荒诞反讽的笔触，道出一线从业者真正面对的琐碎痛苦",
+      "3. 话锋一转：虽然现实很骨感，但我们找到了让自己少掉头发的解法",
+      "4. 评论区邀请同行一起吐槽抱团"
+    ],
+    "card_badge": "真实日常",
+    "visual_theme": "sunset_gradient"
+  }
+]

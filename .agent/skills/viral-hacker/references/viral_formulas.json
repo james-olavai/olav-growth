@@ -1,0 +1,165 @@
+[
+  {
+    "id": "ANTI_COMMON_SENSE",
+    "name": "反常识认知差 / 击碎伪行规",
+    "description": "打破大众习以为常但实际低效或致命的常规做法，制造强烈的醒脑冲击感与避坑紧迫感",
+    "emotional_driver": "醒脑震撼 + 避坑紧迫感 + 行业内幕感",
+    "hook_patterns": [
+      "为什么90%的{target_role}在{action}上都在交智商税？3个被掩盖的底层真相",
+      "听我一句劝：别再盲目{common_mistake}了，平台底层规则早就变了",
+      "绝大多数人做{action}做不起来，不是不够努力，而是被这套伪逻辑坑惨了"
+    ],
+    "story_beats": [
+      "Beat 1 (黄金3秒冲击): 击碎一个大众深信不疑的普遍做法，指出其必然失效的残酷现实",
+      "Beat 2 (揭露底层逻辑): 拆解大厂、算法或行业底层从未明说的潜规则与真实衡量指标",
+      "Beat 3 (三步实操交付): 给出自己亲自踩坑验证过的 3 个轻量破解步序与真实数据",
+      "Beat 4 (互动暗号转化): 开放式提问引发评论区站队，并提供独家自查清单作为引流诱饵"
+    ],
+    "slot_schema": {
+      "target_role": "目标受众角色（如：独立开发者、出海增长黑客）",
+      "action": "受众正在进行的动作（如：多平台社媒获客、内容矩阵发布）",
+      "common_mistake": "普遍认知的错误做法（如：买批量群控脚本疯狂灌水）",
+      "hidden_truth": "底层真相（如：平台风控升级为指纹识别与同质化语义降权）",
+      "steps": "3个验证有效的具体实操步序",
+      "lead_magnet": "免费交付资料/暗号（如：多平台合规自查表）"
+    },
+    "visual_theme": "dark_tech",
+    "card_badge": "认知避坑"
+  },
+  {
+    "id": "BEFORE_AFTER_GAP",
+    "name": "前后巨大反差 / 绝望触底反弹",
+    "description": "展现惨淡起点与高光成果的鲜明对照，引发强烈好奇心与逆袭代入感",
+    "emotional_driver": "惊叹好奇 + 逆袭共情 + 可复制性渴望",
+    "hook_patterns": [
+      "从{rock_bottom}到{peak_result}，我只戒掉了这3个致命习惯",
+      "用了整整3个月才搞明白：真正拉开{target_role}差距的，从来不是{common_focus}，而是{real_lever}",
+      "回顾这一年：从每天{frustration}，到如今{ideal_state}，我的极简工作流复盘"
+    ],
+    "story_beats": [
+      "Beat 1: 晒出最惨烈、最真实的起点（亏损、封号、零转化、焦虑失眠）",
+      "Beat 2: 发生转折的顿悟瞬间：意识到过去所有的忙碌只是用战术勤奋掩盖战略懒惰",
+      "Beat 3: 砍掉80%无用动作，提炼出真正撬动增长的核心杠杆",
+      "Beat 4: 交付核心工作流配置文件/框架图"
+    ],
+    "slot_schema": {
+      "rock_bottom": "最低谷状态（如：发帖30天阅读不过百、频繁封号）",
+      "peak_result": "突破后的结果（如：单月获客突破3位数、跨平台全自动化运行）",
+      "target_role": "受众角色",
+      "common_focus": "过去无意义关注的点（如：追逐复杂的排期工具黑科技）",
+      "real_lever": "真正起效的杠杆（如：单一事实源与模糊变量去油）",
+      "steps": "转折后的核心执行动作",
+      "lead_magnet": "完整复盘笔记或配置文件"
+    },
+    "visual_theme": "cyber_blue",
+    "card_badge": "实操复盘"
+  },
+  {
+    "id": "FAILURE_POSTMORTEM",
+    "name": "踩坑自爆 / 血泪实操复盘",
+    "description": "以一线实干者的第一人称自爆血泪教训，天然建立极高的真实性与信任感",
+    "emotional_driver": "极度信任 + 同理心共鸣 + 迫切避坑",
+    "hook_patterns": [
+      "踩了整整半年坑、浪费上万元才总结出的教训：{action}千万别再碰这3个雷区！",
+      "作为一线{target_role}，我劝你别再做无脑的{common_mistake}了（附血泪教训）",
+      "这是我今年最后悔的一个决定：以为{mistaken_belief}，结果差点全部归零"
+    ],
+    "story_beats": [
+      "Beat 1: 真实自爆具体损失（时间、金钱、账号资产），不避讳失败",
+      "Beat 2: 逐条剖析为什么旧路走不通（踩坑根因深度归因）",
+      "Beat 3: 经过验证的“救火与重建”新规范，附前后对比",
+      "Beat 4: 呼吁同行不要重蹈覆辙，领取避坑自查表"
+    ],
+    "slot_schema": {
+      "target_role": "受众角色",
+      "action": "核心动作",
+      "common_mistake": "常踩雷区",
+      "mistaken_belief": "当初错误的信念",
+      "hidden_truth": "血泪教训背后的本质",
+      "steps": "正确的重建方案",
+      "lead_magnet": "避坑自查表"
+    },
+    "visual_theme": "warm_editorial",
+    "card_badge": "血泪避坑"
+  },
+  {
+    "id": "CURATED_GOLDMINE",
+    "name": "极客藏宝箱 / 生产力神器清单",
+    "description": "高密度交付实用工具、配置模板或精选资源，极高收藏率与转发率",
+    "emotional_driver": "白嫖获得感 + 生产力倍增欲 + 立即收藏",
+    "hook_patterns": [
+      "私藏了半年的3个{topic}硬核神器，每一款都能帮你干掉一个兼职团队",
+      "建议低调收藏！这套彻底摆脱{pain_point}的开源工作流，终于被我跑通了",
+      "不花一分钱！适合{target_role}的高效全自动生产力武器库"
+    ],
+    "story_beats": [
+      "Beat 1: 痛点引入：受够了繁琐重复的机械操作和昂贵的月租软件",
+      "Beat 2: 工具1（痛点突破器）：解决核心痛点，功能硬核",
+      "Beat 3: 工具2（效率加速器）：降维打击，无缝衔接",
+      "Beat 4: 工具3（全流程闭环器）：串联整套架构，实现终极自由",
+      "Beat 5: 领取方式：评论区直接给开源地址与配置清单"
+    ],
+    "slot_schema": {
+      "topic": "领域主题（如：全自动营销、AI内容工厂）",
+      "pain_point": "具体烦恼痛点（如：每天手动发帖耗尽精力）",
+      "target_role": "目标受众",
+      "tools": "3个核心工具或关键模块介绍",
+      "lead_magnet": "工具清单与开源部署脚本"
+    },
+    "visual_theme": "emerald_growth",
+    "card_badge": "极客神器"
+  },
+  {
+    "id": "TROJAN_HORSE_CASE",
+    "name": "借壳深扒 / 标杆爆款底层拆解",
+    "description": "借势行业知名成功案例或爆款产品，剥离表象拆解其底层架构，交付普适方法论",
+    "emotional_driver": "揭秘欲 + 商业启发 + 模仿实操欲",
+    "hook_patterns": [
+      "深度拆解：为什么{benchmark_name}能靠{simple_feature}在30天内做到{benchmark_result}？",
+      "扒一扒全网爆火的{benchmark_name}背后的底层技术栈，一个人如何干出千万级流水？",
+      "别光看{benchmark_name}表面热闹，真正支撑它爆发的，其实是这套隐形架构"
+    ],
+    "story_beats": [
+      "Beat 1: 抛出标杆对象的爆炸性数据或现象，引发极大好奇",
+      "Beat 2: 剥离运气成分与宣传噱头，直击其核心商业逻辑与技术支点",
+      "Beat 3: “木马借壳”：普通开发者或团队如何用本品牌技术方案 1:1 低成本复制其核心能力",
+      "Beat 4: 完整架构图解与落地 SOP 交付"
+    ],
+    "slot_schema": {
+      "benchmark_name": "标杆产品或热门项目名称",
+      "simple_feature": "看似简单的切入点",
+      "benchmark_result": "惊人的成果指标",
+      "hidden_truth": "底层真正起效的架构飞轮",
+      "steps": "普通人低成本复制的具体3步",
+      "lead_magnet": "完整架构复刻图"
+    },
+    "visual_theme": "dark_tech",
+    "card_badge": "深度拆解"
+  },
+  {
+    "id": "CONTRARIAN_HOTTAKE",
+    "name": "逆风执言 / 暴击浮躁狂热",
+    "description": "在全行业都在跟风盲信某个热潮时，反向指出泡沫、局限与真正脚踏实地的路线",
+    "emotional_driver": "清醒理性 + 行业批判 + 寻找确定性",
+    "hook_patterns": [
+      "停止无脑盲目吹捧{hot_trend}了！真正的专业玩家都在悄悄做这事",
+      "当所有人都在卷{hot_trend}时，最聪明的{target_role}早就换了打法",
+      "残酷的现实：关于{hot_trend}的9个谎言，谁信谁当炮灰"
+    ],
+    "story_beats": [
+      "Beat 1: 大胆直面当前的浮躁热潮，指出其不可持续性与大众跟风代价",
+      "Beat 2: 用一线真实数据与落地案例戳破宣传泡沫",
+      "Beat 3: 提出反主流的“回归常识与基本盘”路线，给出确定的解决方案",
+      "Beat 4: 互动引导：邀请评论区同行分享真实感受"
+    ],
+    "slot_schema": {
+      "hot_trend": "当前热点/概念（如：一键全自动全网无脑铺量群发）",
+      "target_role": "目标受众",
+      "hidden_truth": "泡沫与真相",
+      "steps": "脚踏实地的长效落地解法",
+      "lead_magnet": "长效增长方法论"
+    },
+    "visual_theme": "sunset_gradient",
+    "card_badge": "清醒洞察"
+  }
+]

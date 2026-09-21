@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#faf8f5"/>
+            <stop offset="100%" stop-color="#ffffff"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Canvas Background -->
+    <rect width="1080" height="1440" fill="url(#bg-grad)"/>
+
+    <!-- Decorative Top Wave / Grid -->
+    <circle cx="1080" cy="0" r="400" fill="#d9532f" fill-opacity="0.06"/>
+    <circle cx="0" cy="1440" r="350" fill="#2f5233" fill-opacity="0.04"/>
+
+    <!-- ================= TOP SAFE ZONE (0-210px) ================= -->
+    <!-- Brand / Badge Header (Safe from device status bar) -->
+    <g transform="translate(80, 180)">
+        <rect width="160" height="42" rx="21" fill="#d9532f" fill-opacity="0.15" stroke="#d9532f" stroke-width="1.5"/>
+        <text x="80" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="20" font-weight="600" fill="#d9532f" text-anchor="middle">血泪避坑</text>
+        <text x="920" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="20" font-weight="500" fill="#6c757d" text-anchor="end">01/05</text>
+    </g>
+
+    <!-- ================= ACTIVE CENTER (210-1180px) ================= -->
+    <!-- Big Poster Headline (大字报核心痛点) -->
+    <g transform="translate(80, 320)">
+        <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="64" font-weight="800" fill="#1f2421" line-height="1.2">
+            <tspan x="0" y="0">踩了整整半年坑、浪费上万元才总</tspan>
+            <tspan x="0" y="82" fill="#2f5233">结出的教训：业务运</tspan>
+        </text>
+    </g>
+
+    <!-- Subtitle / Hook context -->
+    <text x="80" y="520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="30" font-weight="400" fill="#6c757d">
+        踩坑自爆 / 血泪实操复盘 · 实操解构
+    </text>
+
+    <!-- Divider -->
+    <line x1="80" y1="580" x2="1000" y2="580" stroke="#e8e5e0" stroke-width="2"/>
+
+    <!-- Structured Content Blocks -->
+    
+        <g transform="translate(80, 660)">
+            <rect width="920" height="92" rx="16" fill="#ffffff" stroke="#e8e5e0" stroke-width="2"/>
+            <circle cx="48" cy="46" r="18" fill="#d9532f" fill-opacity="0.15"/>
+            <text x="48" y="53" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="20" font-weight="bold" fill="#d9532f" text-anchor="middle">1</text>
+            <text x="90" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="28" font-weight="500" fill="#1f2421">步骤1 (锚定真相): 核心架构经过生产环境</text>
+        </g>
+        
+
+        <g transform="translate(80, 775)">
+            <rect width="920" height="92" rx="16" fill="#ffffff" stroke="#e8e5e0" stroke-width="2"/>
+            <circle cx="48" cy="46" r="18" fill="#d9532f" fill-opacity="0.15"/>
+            <text x="48" y="53" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="20" font-weight="bold" fill="#d9532f" text-anchor="middle">2</text>
+            <text x="90" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="28" font-weight="500" fill="#1f2421">步骤2 (去油打散): 数据与文案 100%</text>
+        </g>
+        
+
+        <g transform="translate(80, 890)">
+            <rect width="920" height="92" rx="16" fill="#ffffff" stroke="#e8e5e0" stroke-width="2"/>
+            <circle cx="48" cy="46" r="18" fill="#d9532f" fill-opacity="0.15"/>
+            <text x="48" y="53" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="20" font-weight="bold" fill="#d9532f" text-anchor="middle">3</text>
+            <text x="90" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="28" font-weight="500" fill="#1f2421">步骤3 (稳健避坑): 针对“多渠道发布规则</text>
+        </g>
+        
+
+    <!-- ================= BOTTOM SAFE ZONE (1180-1440px) ================= -->
+    <!-- Soft CTA / Funnel Hook (Above bottom reaction buttons) -->
+    <g transform="translate(80, 1220)">
+        <rect width="920" height="72" rx="14" fill="#ffffff" stroke="#d9532f" stroke-width="2" stroke-dasharray="8 6"/>
+        <text x="460" y="45" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="24" font-weight="600" fill="#d9532f" text-anchor="middle">
+            👉 评论区回复【领取】，免费获取《实操避坑自查清单》
+        </text>
+    </g>
+</svg>

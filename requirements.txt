@@ -1,0 +1,28 @@
+# ==============================================================================
+# Olav Marketing OS: Core Python Dependencies
+# Install via: pip install -r requirements.txt
+# ==============================================================================
+
+# Core HTTP, Parsing & Utilities
+requests>=2.31.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+pydantic>=2.0.0
+loguru>=0.7.0
+lxml>=5.0.0
+
+# Document Knowledge Base (docs-kb)
+openpyxl>=3.1.0
+markitdown>=0.0.1a4
+pypdfium2>=4.30.0
+Pillow>=10.0.0
+pytesseract>=0.3.10
+
+# Union Search & Intelligence Scraping
+pyimagedl>=0.1.0
+yt-dlp>=2024.0.0
+tavily-python>=0.3.0
+firecrawl-py>=0.0.10
+
+# Visual Rendering & Export (Optional / Recommended)
+# cairosvg>=2.7.0

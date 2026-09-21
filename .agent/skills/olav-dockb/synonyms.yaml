@@ -1,0 +1,8 @@
+# Synonym clusters for search_docs.py free-text queries.
+#
+# Each group is a set of interchangeable terms: searching for any member
+# expands the query to match ANY term in its group. Grow this file from real
+# usage — see query_misses.jsonl for queries that returned few/no hits — and
+# add a group only once two terms are confirmed to refer to the same thing in
+# the corpus. Empty until then.
+groups: []

@@ -1,0 +1,12 @@
+{
+  "recipe_id": "VRB-20260921-trend-知名saas工具突发大面积宕机且宣布",
+  "brief_source": "content/campaigns/viral-briefs/VRB-20260921-trend-知名saas工具突发大面积宕机且宣布.json",
+  "created_at": "2026-09-21 00:42:53",
+  "visual_card": "content/campaigns/VRB-20260921-trend-知名saas工具突发大面积宕机且宣布/cover_card.svg",
+  "drafts": {
+    "xiaohongshu": "content/campaigns/VRB-20260921-trend-知名saas工具突发大面积宕机且宣布/xhs_post.md",
+    "x_twitter": "content/campaigns/VRB-20260921-trend-知名saas工具突发大面积宕机且宣布/x_thread.md",
+    "linkedin": "content/campaigns/VRB-20260921-trend-知名saas工具突发大面积宕机且宣布/linkedin_post.md",
+    "blog": "content/campaigns/VRB-20260921-trend-知名saas工具突发大面积宕机且宣布/blog_post.md"
+  }
+}

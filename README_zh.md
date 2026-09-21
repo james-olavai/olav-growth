@@ -1,0 +1,472 @@
+# 🚀 olav-growth: 智能体增长操作系统 (Agentic Growth Engine)
+
+[English](README.md) | [简体中文](README_zh.md)
+
+> **olav-growth** 是一套面向现代品牌与技术创始人的 **AI Agent 全自动化增长操作系统**。  
+> 系统基于多智能体协同架构，打通了从 **“事实源校准 ➔ 实时热点捕获 ➔ 5维量化选题 ➔ 去油内容工厂 ➔ 多平台矩阵分发 ➔ 记忆数据自进化”** 的完整商业增长闭环。
+
+---
+
+## 目录
+- [一、系统闭环飞轮与支持系统全景 (Flywheel & Matrix)](#一系统闭环飞轮与支持系统全景-flywheel--matrix)
+- [二、核心架构与功能矩阵](#二核心架构与功能矩阵)
+- [三、发布通道与基础设施](#三发布通道与基础设施)
+- [四、核心服务部署指南](#四核心服务部署指南)
+  - [1. 自建 Postiz 排期集群 (含 Cloudflare Tunnel)](#1-自建-postiz-排期集群-含-cloudflare-tunnel)
+  - [2. 持久化 Chromium 浏览器集群 (Web VNC + CDP)](#2-持久化-chromium-浏览器集群-web-vnc--cdp)
+- [五、疑难杂症与深度踩坑排错手册 (必读)](#五疑难杂症与深度踩坑排错手册-必读)
+  - [【Postiz】为什么必须强制配置 Cloudflare Tunnel？](#postiz为什么必须强制配置-cloudflare-tunnel)
+  - [【Postiz】Bash 报错：No such file or directory 根因](#postizbash-报错no-such-file-or-directory-根因)
+  - [【浏览器】报错：Error: This application requires a secure connection (HTTPS)](#浏览器报错error-this-application-requires-a-secure-connection-https)
+  - [【浏览器】报错：ERR_SSL_PROTOCOL_ERROR](#浏览器报错err_ssl_protocol_error)
+  - [【浏览器】CDP 9222 端口 Connection reset by peer 根因与网桥注入](#浏览器cdp-9222-端口-connection-reset-by-peer-根因与网桥注入)
+- [六、快速上手：日常自动化工作流](#六快速上手日常自动化工作流)
+  - [1. 一键连通性自检](#1-一键连通性自检)
+  - [2. 中文平台扫码与 Cookie 自动同步](#2-中文平台扫码与-cookie-自动同步)
+  - [3. 矩阵内容一键发布](#3-矩阵内容一键发布)
+- [七、全网多平台联合搜索与情报中枢 (Union Search)](#七全网多平台联合搜索与情报中枢-union-search)
+  - [1. 能力全景与平台矩阵](#1-能力全景与平台矩阵)
+  - [2. 常用搜索指令速查](#2-常用搜索指令速查)
+  - [3. 深度融入营销 Agent 闭环](#3-深度融入营销-agent-闭环)
+- [八、爆款逆向模仿与借势破圈引擎 (Viral Hacker)](#八爆款逆向模仿与借势破圈引擎-viral-hacker)
+  - [1. 架构定位：模具铸造师 vs 事实灌装工](#1-架构定位模具铸造师-vs-事实灌装工)
+  - [2. 6 大爆款模具与 4 大借势切角](#2-6-大爆款模具与-4-大借势切角)
+  - [3. 一键提取与工厂成文指令](#3-一键提取与工厂成文指令)
+
+---
+
+## 一、系统闭环飞轮与支持系统全景 (Flywheel & Matrix)
+
+系统打通了从底层事实建模到全网分发、再到效果反哺进化的完整 **90天增长复利飞轮 (Content Snowball Flywheel)**：
+
+```mermaid
+flowchart TD
+    subgraph 0_Brand ["0. 品牌大脑与基盘事实 (Brand Core & Single Source of Truth)"]
+        Inputs["官网 URL / 业务资料 / 个人 IP 资料 / 商业计划书"] --> Onboard["brand-core (onboard_brand.py)"]
+        Onboard --> SOT["单一事实源 BUSINESS-SOT.md\n(产品定位 / ICP痛点 / 证明硬数据 / $0引流品 / 禁令)"]
+        ZeroHardcode["★ 零代码硬编码原则: 换业务只需更新 SOT，全流程 100% 自动对齐新行业"]
+        SOT -.-> ZeroHardcode
+    end
+
+    subgraph 1_Radar ["1. 全网联合搜索与情报雷达 (Scout & Intelligence)"]
+        UnionSearch["union-search 联合引擎\n(DuckDuckGo / 360 / 搜狗 / GitHub / 维基等 40+ 平台)"]
+        GT["Google Trends 跨国热搜 (US/TW/SG/HK)"]
+        TechForum["Hacker News / Reddit / 开发者社区热议"]
+        UnionSearch & GT & TechForum --> TrendRadar["trend-radar (scout_signals.py)"]
+        SOT -.->|SOT 关键词语义降噪过滤| TrendRadar
+        TrendRadar --> Signals["候选信号池\n(content/candidate_signals/SIG-*.md)"]
+    end
+
+    subgraph 2_Viral ["2. 爆款逆向解构与借势破圈 (Viral Hacker)"]
+        ViralURL["全网爆款链接 / 突发行业事件"] --> ViralHacker["viral-hacker\n(extract_recipe.py / trend_jack.py)"]
+        Formulas["6大心理学爆款模具\n(反常识 / 触底反弹 / 踩坑自爆 / 藏宝图等)"] --> ViralHacker
+        Angles["4大借势破圈切角\n(救援者 / 架构师 / 讽刺客 / 敲钟人)"] --> ViralHacker
+        SOT -.->|业务槽位事实动态注入| ViralHacker
+        ViralHacker --> ViralBrief["爆款配方指令单\n(content/campaigns/viral-briefs/VRB-*.json)"]
+    end
+
+    subgraph 3_Decision ["3. 五维量化打分与决策层 (Decision Layer)"]
+        Signals --> Strategist["content-strategist (score_topics.py)"]
+        UnionSearch -.->|维基/AI搜索拉取第三方事实佐证| Strategist
+        Strategist --> Calc["五维量化决策公式:\nScore = (相关性 × 时效 × 讨论度 × 证据充分度) ÷ 风险"]
+        Calc --> Brief["战役立项企划书\n(content/campaigns/YYYYMMDD-<slug>/_brief.md)"]
+    end
+
+    subgraph 4_Factory ["4. 去油内容工场与视觉装配 (Production Layer)"]
+        Brief & ViralBrief --> Factory["content-factory\n(prompt_chain.py / bridge_to_factory.py)"]
+        SOT -.->|锁定品牌事实与去油禁令黑名单| Factory
+        Mem_Hooks -.->|Few-Shot 注入高转化黄金开口| Factory
+        UnionImages["18平台高质感商业素材引擎\n(Bing / Pixabay / Unsplash / 360等)"] -.->|高清配图素材| Factory
+        Factory --> PromptChain["3阶段 Prompt 链\n(定词锚定 ➔ 造钩子 HookGen ➔ 去油注入口语)"]
+        Factory --> CardRenderer["3:4 视觉大字报\n(card_renderer.py 渲染 1080x1440 SVG/PNG)"]
+        PromptChain & CardRenderer --> Drafts["全套原生交付包 (posts/ & images/)"]
+    end
+
+    subgraph 5_Matrix ["5. 多渠道矩阵分发与支持系统 (Distribution Matrix & Gatekeeper)"]
+        Drafts --> Gatekeeper["双重人机终审把关 (Gatekeeper)\n(manifest.md 签字确认 + Telegram Bot 手机通知)"]
+
+        subgraph Tier1 ["⚡ 轨道 A: 官方 REST/GraphQL API 自动化发布"]
+            Buffer["Buffer 官方 GraphQL API"] --> Overseas1["LinkedIn / X (Twitter) / Facebook / Instagram"]
+            Postiz["自建 Postiz 生产集群\n(PostgreSQL + Redis + Cloudflare Tunnel)"] --> Overseas2["X / LinkedIn / Reddit / YouTube / TikTok / Pinterest 等 30+ 平台"]
+            Webhook["n8n / Make / 自定义 Webhook"] --> AutoFlow["自动化工作流深度集成"]
+        end
+
+        subgraph Tier2 ["🛡️ 轨道 B: 高风控扫码与持久化浏览器分发"]
+            Chrome["持久化 Chromium 容器集群\n(Web VNC 端口 3000/3001 + CDP 远程网桥 9222)"] --> Domestic["小红书 / 微信公众号 / 知乎专栏\n(扫码一次永久保持会话，自动提取同步 Cookie)"]
+        end
+
+        subgraph Tier3 ["🤖 轨道 C: 生成式引擎友好化 (GEO)"]
+            GEOGen["generate_llms_txt.py"] --> GEOFiles["public/llms.txt & llms-full.txt\n(面向 Perplexity / ChatGPT / Claude / Gemini 问答引用)"]
+        end
+
+        Gatekeeper --> Tier1
+        Gatekeeper --> Tier2
+        Drafts --> Tier3
+    end
+
+    subgraph 6_Flywheel ["6. 数据回流与自我进化飞轮 (Evolutionary Compounding Loop)"]
+        Tier1 & Tier2 --> Telemetry["发布效果追踪 (T+24h / T+72h)\n(展现量、点赞、收藏、评论、CES互动得分、暗号线索)"]
+        Telemetry --> Evolve["evolve_memory.py 飞轮进化引擎"]
+        Evolve -->|① 实测高转化黄金钩子晋级| Mem_Hooks["记忆右脑 (content/memory.md)\n1. Proven Winning Hooks"]
+        Evolve -->|② 真实用户痛点与抗拒原声| Mem_VoC["2. Real Customer Voice"]
+        Evolve -->|③ 平台新风控规则与封禁红线| SOT_Ban["3. Anti-Ban & 避坑禁令库"]
+        Evolve --> Reflection["每周复盘简报 (content/reflections/*.md)"]
+
+        Mem_VoC -.->|动态输入下一期选题| TrendRadar
+    end
+
+    style SOT fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+    style Brief fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style ViralBrief fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style Signals fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Mem_Hooks fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style Gatekeeper fill:#fffde7,stroke:#fbc02d,stroke-width:2px
+    style Evolve fill:#e0f2f1,stroke:#00897b,stroke-width:2px
+```
+
+### 支持的平台与系统矩阵 (Supported Ecosystem)
+
+| 业务环节 | 支持系统 / 渠道 / 技术组件 | 自动化形态 | 凭证 / 配置项 |
+| :--- | :--- | :--- | :--- |
+| **海外平台 (官方 API)** | **LinkedIn**, **X (Twitter)**, **Facebook**, **Instagram** | Buffer 官方 GraphQL API 直连排程与直发 | `BUFFER_ACCESS_TOKEN`<br>`BUFFER_PROFILE_IDS` |
+| **海外平台 (自建网关)** | **X**, **LinkedIn**, **Reddit**, **YouTube**, **TikTok**, **Pinterest** 等 30+ 平台 | 自建 Postiz 生产集群 (PostgreSQL 15 + Redis 7 + Cloudflare Tunnel) | `POSTIZ_API_URL`<br>`POSTIZ_API_KEY` |
+| **国内平台 (扫码会话)** | **小红书 (XHS)**, **微信公众号**, **知乎专栏** | 持久化 Chromium 容器 (Web VNC + 9222 CDP 网桥自动同步 Cookie) | `XHS_COOKIE`<br>`ZHIHU_COOKIE` |
+| **审核与把关人** | **Telegram Bot** (频道广播与 Approve/Reject 手机交互), `manifest.md` | 双重人机终审闸门 (Gatekeeper)，杜绝事实翻车与封号 | `TELEGRAM_BOT_TOKEN`<br>`TELEGRAM_CHAT_ID` |
+| **全网情报侦测** | **Google Trends** (跨国热搜), **Hacker News**, **DuckDuckGo**, **360**, **搜狗**, **GitHub**, **维基百科** 等 40+ 引擎 | `union-search` 统一联合搜索 CLI，免 API Key 开箱即用 | 可选增强 Token (`TAVILY_API_KEY`, `TIKHUB_TOKEN`) |
+| **高质感视觉配图** | **Bing**, **Pixabay**, **Unsplash**, **Google**, **百度**, **火山引擎** 等 18 平台图片引擎 | 批量高清素材爬取与 3:4 视觉大字报 (`card_renderer.py`) | 本地直接下载并渲染 |
+| **AI 问答收录 (GEO)** | **Perplexity**, **ChatGPT**, **Claude**, **Gemini** 问答索引 | 自动从 `BUSINESS-SOT.md` 生成标准 `llms.txt` / `llms-full.txt` | 静态文件生成 (`public/`) |
+| **飞轮记忆进化** | **Obsidian** 兼容双向链库 (`content/memory.md` & `BUSINESS-SOT.md`) | `evolve_memory.py` 自动提拔爆款钩子、沉淀用户原声与反思周报 | Git 自动跟踪与版本迭代 |
+
+---
+
+## 二、核心架构与功能矩阵
+
+系统由以下 8 个核心专业智能体 Skill 与工具库构成：
+
+```
+olav-growth/
+├── .agent/skills/
+│   ├── brand-core/            # 品牌单一事实源 (SOT) 与进化右脑 (memory.md)
+│   ├── trend-radar/           # 实时热点雷达 (Google Trends / HN / 社区热搜 / 联合搜索)
+│   ├── viral-hacker/          # 爆款逆向解构、骨架模具提取与实时热点借势破圈
+│   ├── content-strategist/    # 5维量化选题决策与战役简报生成
+│   ├── content-factory/       # 去油内容工厂与 3:4 视觉大字报自动渲染
+│   ├── growth-distribution/   # 矩阵分发、人工过审闸门与全平台发布脚本
+│   ├── docs-kb/               # 混合多格式企业知识库检索与分类
+│   └── union-search/          # 跨40+平台联合搜索与18平台图片下载 (软链接 tools/union-search)
+├── tools/
+│   └── union-search/          # 联合搜索统一 CLI 与多平台引擎库
+```
+
+---
+
+## 二、发布通道与基础设施
+
+为适应境内外社交平台的风控与 API 特性，系统设计了分层发布矩阵：
+
+| 平台类别 | 覆盖平台 | 技术方案 | 自动化能力 | 凭证管理 |
+| :--- | :--- | :--- | :--- | :--- |
+| **海外平台 (直连 API)** | LinkedIn, X, Facebook, Instagram | **Buffer 官方 GraphQL API** | 全自动调度发布、支持富媒体与草稿队列 | `BUFFER_ACCESS_TOKEN` |
+| **海外平台 (自建网关)** | X, LinkedIn, Reddit, YouTube, TikTok 等 30+ 平台 | **自建 Postiz 生产集群** (PostgreSQL + Redis + Cloudflare Tunnel) | 零月费、无渠道上限、原生 MCP 工具调用 | `POSTIZ_API_URL`<br>`POSTIZ_API_KEY` |
+| **国内平台 (扫码持久化)** | 小红书、微信公众号、知乎专栏等 | **持久化 Chromium 容器** (Web VNC + CDP 远程网桥) | 浏览器内扫码登录一次，会话永久保存，Agent 自动提取 Cookie 分发 | `XHS_COOKIE`<br>`ZHIHU_COOKIE` |
+| **审核闸门 (Gatekeeper)** | 移动端团队协同审批 | **Telegram Bot / 闸门 Markdown** | 发帖前手机端一键确认 Approve / Reject | `TELEGRAM_BOT_TOKEN` |
+
+---
+
+## 三、核心服务部署指南
+
+### 1. 自建 Postiz 排期集群 (含 Cloudflare Tunnel)
+
+Postiz 为开源社媒排期平台，本仓库提供了开箱即用的生产级 Docker 编排（包含 PostgreSQL、Redis、Cloudflare Tunnel 入站穿透网关）。
+
+#### 启动步骤：
+1. **获取 Cloudflare Tunnel Token（必须）**：
+   - 登录 [Cloudflare Zero Trust 控制台](https://one.dash.cloudflare.com/) ➔ **Networks** ➔ **Tunnels**。
+   - 点击 **Create a Tunnel**（选择 Cloudflared），复制生成的 Token（以 `ey...` 开头）。
+   - 在 Public Hostname 中添加一条路由：
+     * **Domain**: 你的公网域名（例如 `postiz.yourdomain.com`）
+     * **Service Type**: `HTTP`
+     * **URL**: `postiz:5000`
+2. **配置环境变量**：
+   打开 `deploy/postiz/.env` 填入你的公网域名与 Tunnel Token：
+   ```bash
+   MAIN_URL="https://postiz.yourdomain.com"
+   FRONTEND_URL="https://postiz.yourdomain.com"
+   NEXT_PUBLIC_BACKEND_URL="https://postiz.yourdomain.com/api"
+   NOT_SECURED="false"
+
+   CLOUDFLARE_TUNNEL_TOKEN="ey..."
+   ```
+3. **在宿主机终端启动**：
+   ```bash
+   ./deploy-postiz.sh
+   ```
+4. 访问 `https://postiz.yourdomain.com` 即可直接进入管理后台并绑定社交媒体账号。
+
+---
+
+### 2. 持久化 Chromium 浏览器集群 (Web VNC + CDP)
+
+用于解决小红书、知乎、微信公众号的**扫码登录、滑块拼图校验及会话持久化保存**。
+
+#### 启动步骤：
+在宿主机终端执行：
+```bash
+./deploy-browser.sh
+```
+
+启动完成后：
+* **局域网跨设备访问 (HTTPS)**：👉 `https://<宿主机IP>:3001`（推荐，如 `https://<YOUR_SERVER_IP>:3001`）
+* **宿主机本机浏览器 (HTTP)**：👉 `http://localhost:3000`
+* **CDP 远程调试网桥**：`http://127.0.0.1:9222`（供本地 Agent 与 Cookie 同步脚本调用）
+* **会话持久化目录**：`deploy/browser/chrome-profile/`（保存所有 Cookie、插件与缓存，关机不丢失）
+
+---
+
+## 四、疑难杂症与深度踩坑排错手册 (必读)
+
+### 【Postiz】为什么必须强制配置 Cloudflare Tunnel？
+
+在排期系统的部署实践中，我们发现**纯内网 IP 访问 Postiz 存在天然致命缺陷**，因此必须通过 Cloudflare Tunnel 建立权威公网 HTTPS：
+
+1. **海外社媒 OAuth 回调强制限制**：
+   X (Twitter)、LinkedIn、Meta、Reddit 等开发者平台在配置 OAuth 回调地址时，**严格禁止使用 HTTP 或内网 IP 地址**（例如 `http://<YOUR_SERVER_IP>:5000/api/...` 会被直接驳回）。只有类似 `https://postiz.yourdomain.com` 的受信 HTTPS 域名才能完成授权绑定。
+2. **Cookie 域安全策略冲突 (RFC 6265 规范)**：
+   Postiz 采用 Next.js 前端与 NestJS 后端架构。当通过局域网 IP 访问时，后端下发的 Cookie 包含 `Domain=localhost`，由于访问来源是 IP 地址，现代浏览器会自动拒绝写入跨域 Cookie，导致用户无法保持登录会话，陷入“登录闪退”或“无法保持登录”。
+3. **零端口映射与公网安全防护**：
+   Cloudflare Tunnel 由容器主动建立出站加密长连接，**宿主机无需公网 IP，无需在路由器配置端口映射**，天然免受公网扫描与 DDoS 攻击。
+
+---
+
+### 【Postiz】Bash 报错：No such file or directory 根因
+
+* **现象**：在终端操作时提示：
+   ```bash
+   bash: http://<YOUR_SERVER_IP>:5000/auth/login: No such file or directory
+   ```
+* **根因**：用户误将 URL 直接复制并粘贴到了 Linux 终端命令行中回车。Bash 会把 `http://...` 误当成本地可执行文件路径查找，因而抛出找不到文件错误。
+* **解决**：该 URL 必须在 **桌面浏览器（Chrome / Edge / Firefox）的地址栏** 中打开。
+
+---
+
+### 【浏览器】报错：Error: This application requires a secure connection (HTTPS)
+
+* **现象**：在另一台电脑浏览器访问 `http://<YOUR_SERVER_IP>:3000` 时，网页弹出红色警告对话框：
+   ```text
+   Error: This application requires a secure connection (HTTPS). Please check the URL.
+   ```
+* **根因**：
+   新版 Web VNC（Selkies / KasmVNC）采用了现代浏览器的硬件加速串流技术（WebCodecs & WebRTC）。现代浏览器（Chrome/Edge 等）的安全策略强制规定：**除 `localhost` 外，所有原始局域网 IP 在 HTTP 协议下均属于“不安全上下文 (Insecure Context)”**，浏览器会强行禁用底层编解码 API，导致网页前端直接报错阻断。
+* **解决方案（任选其一）**：
+   * **方案 1（官方推荐，无需修改浏览器）**：
+     在宿主机运行 `./deploy-browser.sh`（映射 3001 端口），然后在浏览器访问 **`https://<YOUR_SERVER_IP>:3001`**（注意是 **https** 和 **3001** 端口）。浏览器提示私密连接警告时，点击 **“高级” ➔ “继续前往”** 即可进入。
+   * **方案 2（10秒极速生效，免重启容器）**：
+     在你的电脑浏览器中打开：
+     `chrome://flags/#unsafely-treat-insecure-origin-as-secure`
+     填入 `http://<YOUR_SERVER_IP>:3000`，设置为 **Enabled** 并点击 **Relaunch** 重启浏览器，即可直接无阻碍访问。
+   * **方案 3（SSH 隧道，零证书警告）**：
+     在你的电脑终端运行 `ssh -L 3000:localhost:3000 user@<YOUR_SERVER_IP>`，然后在浏览器直接访问 `http://localhost:3000`。
+
+---
+
+### 【浏览器】报错：ERR_SSL_PROTOCOL_ERROR
+
+* **现象**：浏览器提示：
+   ```text
+   This site can’t provide a secure connection
+   <YOUR_SERVER_IP> sent an invalid response.
+   ERR_SSL_PROTOCOL_ERROR
+   ```
+* **根因**：**协议与端口混淆**。用户在浏览器中输入了 `https://<YOUR_SERVER_IP>:3000`。由于 `3000` 端口在容器内部是纯 HTTP 协议，当客户端发送 SSL 握手包时，服务端无法识别并断开了握手。
+* **解决**：
+   * 使用 **HTTP** 时访问 **3000** 端口：`http://<YOUR_SERVER_IP>:3000`
+   * 使用 **HTTPS** 时访问 **3001** 端口：`https://<YOUR_SERVER_IP>:3001`
+
+---
+
+### 【浏览器】CDP 9222 端口 Connection reset by peer 根因与网桥注入
+
+* **现象**：宿主机或 Agent 调用 `curl http://127.0.0.1:9222/json/version` 时返回：
+  ```text
+  curl: (56) Recv failure: Connection reset by peer
+  ```
+* **根因**：
+  Chromium M113+ 实施了强制隔离策略：即使用户配置了 `--remote-debugging-address=0.0.0.0`，内核也会强制其只监听容器内的 `127.0.0.1`。Docker 的外部映射连接发往容器网卡 `eth0` 时，由于端口未在 `0.0.0.0` 监听，内核直接返回了 TCP RST 重置连接。
+* **系统内置解决方案**：
+  我们在 `deploy/browser/custom-services.d/cdp-bridge` 与 `autostart` 中注入了自动网桥机制：
+  1. Chromium 在容器内部监听独立端口 `127.0.0.1:9223`；
+  2. 容器后台守护进程 `socat` 监听 `0.0.0.0:9222`，将所有外部发来的 CDP 调试流量平滑代理给 `127.0.0.1:9223`；
+  3. `autostart` 内置守护循环，在界面关闭或崩溃时自动拉起 Chromium，保障 CDP 端口永久在线。
+
+---
+
+## 五、快速上手：日常自动化工作流
+
+### 1. 一键连通性自检
+
+在项目根目录下执行自检诊断命令：
+```bash
+python .agent/skills/growth-distribution/scripts/publish/test_connections.py
+```
+
+终端将全面输出所有通道的健康状态：
+```text
+==================================================================
+ 📡 Olav Growth: Publishing System & API Connectivity Diagnostic
+==================================================================
+✅ Buffer GraphQL API             | CONNECTED       | User: contact@olav.ai     | Channel: [linkedin] Olav Growth
+✅ Postiz Gateway (Self-Hosted)   | CONNECTED       | Public API v1 验证通过 (0 connected integrations)
+✅ Telegram Bot (Mobile Gatekeeper) | CONNECTED       | Bot: @olav_growth_bot
+✅ Persistent Browser (CDP & VNC) | CONNECTED       | Chromium 远程调试网桥 (Port 9222) 活跃中
+```
+
+---
+
+### 2. 中文平台扫码与 Cookie 自动同步
+
+1. 浏览器打开 `https://<YOUR_SERVER_IP>:3001`（或 `http://localhost:3000`）。
+2. 在 Chromium 桌面中访问创作者平台扫码登录：
+   - 小红书：`https://creator.xiaohongshu.com`
+   - 知乎专栏：`https://zhuanlan.zhihu.com`
+   - 微信公众号：`https://mp.weixin.qq.com`
+3. 扫码成功后，在根目录直接运行 Cookie 提取工具：
+   ```bash
+   python .agent/skills/growth-distribution/scripts/publish/sync_browser_cookies.py
+   ```
+   *脚本会自动通过 9222 CDP 网桥抓取最新会话并写入根目录 `.env`，后续无需反复扫码！*
+
+---
+
+### 3. 矩阵内容一键发布
+
+使用统一的发布工具调度草稿或立即发帖：
+
+```bash
+# 1. 发布至 LinkedIn (通过 Buffer)
+python .agent/skills/growth-distribution/scripts/publish/publish_api.py \
+  --channel buffer \
+  --file ./content/campaigns/20260920-launch/posts/linkedin.md
+
+# 2. 发布至 Postiz 排期矩阵 (多平台统一调度)
+python .agent/skills/growth-distribution/scripts/publish/publish_api.py \
+  --channel postiz \
+  --file ./content/campaigns/20260920-launch/posts/x_thread.md
+
+# 3. 模拟测试运行 (Dry Run)
+python .agent/skills/growth-distribution/scripts/publish/publish_api.py \
+  --channel buffer \
+  --file ./content/campaigns/20260920-launch/posts/linkedin.md \
+  --dry-run
+```
+
+---
+
+## 六、全网多平台联合搜索与情报中枢 (Union Search)
+
+系统深度集成了 [union-search-skill](https://github.com/runningZ1/union-search-skill) 并将其注册为 Agent 原生技能 (`.agent/skills/union-search`) 与工具套件 (`tools/union-search`)。它为营销系统提供了跨越 **40+ 搜索引擎与社交媒体平台** 的多端情报检索与素材收集能力。
+
+### 1. 能力全景与平台矩阵
+
+| 分组类别 | 覆盖平台 | API Key 依赖 | 营销应用场景 |
+| :--- | :--- | :--- | :--- |
+| **免 Key 通用搜索** | DuckDuckGo、360搜索、搜狗、Startpage、Google HK Direct | **完全免 Key** | 突破搜索引擎频控，批量获取行业热点与竞品落地页 |
+| **开发者与极客社区** | GitHub 仓库/Issues/代码、Reddit 帖子 | **完全免 Key** (可配 Token 提额) | 捕获技术圈趋势、开源生态痛点与竞品负面反馈 |
+| **百科与权威知识** | Wikipedia、WolframAlpha | **完全免 Key** | 提取专业概念定义、行业基准数据，支撑论点客观性 |
+| **社媒舆情侦测** | Bilibili、知乎、Twitter、抖音、小红书、小宇宙播客 | 视平台而定 (TikHub / Cookie) | 搜集真实用户原声吐槽、爆款笔记 Hook、评论区金句 |
+| **AI 深度增强搜索** | Tavily、秘塔搜索 (Metaso)、Exa、Jina AI | 需对应 Key | 生成结构化事实报告、穿透网页正文提取 Clean Markdown |
+| **18 平台图片素材** | Bing、Unsplash、Pixabay、Pexels、Baidu、Google 等 | **完全免 Key** | 3:4 视觉封面背景素材拉取、无版权高清图库批量下载 |
+
+### 2. 常用搜索指令速查
+
+统一入口为 `python tools/union-search/union_search_cli.py`：
+
+```bash
+# 1. 开发者社区联合搜索 (GitHub + Reddit)
+python tools/union-search/union_search_cli.py search "AI Agent" --group dev --preset small
+
+# 2. 免 Key 通用搜索引擎极速调研
+python tools/union-search/union_search_cli.py platform duckduckgo_html "跨境电商独立站获客" --limit 5
+python tools/union-search/union_search_cli.py platform so360_direct "多平台自动化排期工具" --limit 5
+
+# 3. 百科权威概念提取 (直接输出 Markdown 引用)
+python tools/union-search/union_search_cli.py platform wikipedia "Agentic Workflow" --limit 2
+
+# 4. 18 平台高质感图片批量搜索与下载 (支持 Bing, Unsplash, Pixabay, Pexels)
+python tools/union-search/union_search_cli.py image "futuristic cyber minimal" \
+  --platforms bing pixabay unsplash \
+  --limit 2 \
+  --output-dir ./content/campaigns/assets/
+
+# 5. 网页正文 Clean Markdown 提取 (免 Key 无广告提取)
+python tools/union-search/union_search_cli.py defuddle "https://techcrunch.com/xxxx" --json
+
+# 6. 环境连通性与 API 状态体检
+python tools/union-search/union_search_cli.py doctor
+```
+
+### 3. 深度融入营销 Agent 闭环
+
+- **`trend-radar` (热点雷达)**：除 Google Trends 外，一键拉取 GitHub / Reddit / 360 / 搜狗的讨论热度，自动将高互动话题转入 `content/candidate_signals/`。
+- **`content-strategist` (选题决策)**：在五维评分模型中，通过 DuckDuckGo / Wikipedia / Tavily 自动跑取“**证据充分度**”支撑数据，杜绝无事实支撑的自嗨选题。
+- **`content-factory` (去油工厂)**：利用 18 平台图片搜索模块，快速为各渠道 3:4 视觉大字报、公众号次条、博客长文配齐无版权高清商业图库素材。
+
+---
+
+## 七、爆款逆向模仿与借势破圈引擎 (Viral Hacker)
+
+系统全新落地了专门针对流量爆发的智能体技能：**`viral-hacker`** (`.agent/skills/viral-hacker/`)。它与 `content-factory` 紧密配合，实现“**全网解构骨架 ➔ 品牌事实灌装 ➔ 多端原创爆文**”的高效增长飞轮。
+
+### 1. 架构定位：模具铸造师 vs 事实灌装工
+
+- **`viral-hacker` (模具铸造师 / 逆向情报官)**：
+  - 核心职责：“**借壳不借肉**”。
+  - 抓取全网爆款（URL/搜索）或实时热搜，剥离原文表象，精准提炼**黄金开口 Hook 公式、情绪共鸣机制、叙事节拍器与参数槽位 (Slots)**。
+  - 输出标准化的《爆款配方指令单 (Viral Recipe Brief)》。
+- **`content-factory` (事实灌装工 / 内容装配车间)**：
+  - 核心职责：“**事实灌装与平台原生化**”。
+  - 读取 `BUSINESS-SOT.md` 真实数据与案例填充槽位，注入随机情绪垫词消除 AI 味，一键渲染 3:4 视觉大字报，输出小红书、X Thread、LinkedIn、公众号等多端原创草稿。
+
+### 2. 6 大爆款模具与 4 大借势切角
+
+- **6 大内置爆款模具 (`viral_formulas.json`)**：
+  1. `ANTI_COMMON_SENSE`：反常识认知差 / 击碎伪行规
+  2. `BEFORE_AFTER_GAP`：前后巨大反差 / 绝望触底反弹
+  3. `FAILURE_POSTMORTEM`：踩坑自爆 / 血泪实操复盘
+  4. `CURATED_GOLDMINE`：极客藏宝箱 / 生产力神器清单
+  5. `TROJAN_HORSE_CASE`：借壳深扒 / 标杆爆款底层拆解
+  6. `CONTRARIAN_HOTTAKE`：逆风执言 / 暴击浮躁狂热
+- **4 大精准借势切角 (`trend_jack_angles.json`)**：
+  1. **打假避坑型 (The Truth-Teller)**：全网都在吹 [热点]，实测 7 天后，我们发现的 3 个致命隐患……
+  2. **平替救火型 (The Rescuer)**：[大厂/竞品] 刚刚突发涨价/宕机，手把手教你开源 10 分钟平替！
+  3. **底层架构深扒型 (The Architect)**：深度拆解：为什么 [新产品] 能一夜破圈？扒开它的底层架构。
+  4. **借梗吐槽共鸣型 (The Satirist)**：看完今天关于 [热搜] 的讨论，做实干的同行直接笑不出来了……
+
+### 3. 一键提取与工厂成文指令
+
+统一入口脚本位于 `.agent/skills/viral-hacker/scripts/`：
+
+```bash
+# 1. 拆解指定爆款 URL 并一键交付内容工厂成文 (含 3:4 视觉大字报与全平台草稿)
+python .agent/skills/viral-hacker/scripts/extract_recipe.py \
+  --url "https://twitter.com/example/status/123456" \
+  --to-factory
+
+# 2. 搜索特定主题全网高赞帖并复刻结构
+python .agent/skills/viral-hacker/scripts/extract_recipe.py \
+  --search "自动化营销避坑" \
+  --to-factory
+
+# 3. 突发热点闪电借势 (Trend Jacking)
+python .agent/skills/viral-hacker/scripts/trend_jack.py \
+  --topic "知名SaaS服务突发大面积宕机且宣布涨价" \
+  --angle rescuer \
+  --to-factory
+```
+
+产出物收拢至 `content/campaigns/<recipe_id>/`，包含 `cover_card.svg`（3:4 视觉大字报）、小红书高留存文案、X 5屏线程、LinkedIn 深度帖与博客长文。
+
+---
+
+## 许可证
+
+本项目遵循 MIT 协议开源使用与二次开发。

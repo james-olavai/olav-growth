@@ -1,0 +1,59 @@
+# Configuration for the docs-kb skill.
+#
+# This file is a human-negotiated convention, not something to regenerate
+# blindly — see SKILL.md's "Init checklist". The scripts stay generic; only the
+# values here decide what gets scanned and how documents are classified.
+#
+# Every path below is resolved relative to ROOT. ROOT defaults to this skill's
+# repository root and can be pointed elsewhere with the DOCS_KB_ROOT
+# environment variable (see SKILL.md "Files").
+
+scan_dirs:
+  - "."   # Relative to DOCS_KB_ROOT (repo root when unset); once a real Drive is wired
+          # up, just point DOCS_KB_ROOT there — no need to change this value. How
+          # WORKSPACE subdivides its own subdirectories is up to the user; this
+          # engine assumes no structure.
+
+# First matching prefix wins (order matters). A filename starting with "_" is
+# always classified "internal-tracking" regardless of this list (handled in
+# code — it's a generic convention, not project-specific).
+doc_type_rules:
+  # Keeps the rule-name pattern (a generic naming convention this skill ships
+  # with, not domain vocabulary), but drops all project-specific path values —
+  # leaving just one generic catch-all, plus the underscore-prefixed-file
+  # convention (the latter is already hardcoded in classify.py, no need to
+  # repeat it here).
+  - [".", "doc"]
+
+classifiable_doc_types:
+  - doc
+
+# List of doc_type values: documents of these types are expected to carry a
+# page_id (from some external sync source system). add_frontmatter.py uses
+# this to report a "this type is missing page_id" diagnostic. Empty = skip
+# this diagnostic (the default, since it isn't yet known whether the real
+# corpus has an external sync source).
+page_id_doc_types: []
+
+categories:
+  source_folder: ""   # Left empty: no existing "labeled subtree" to auto-detect yet
+                      # (the real Drive is currently empty). Per SKILL.md's own Init
+                      # checklist step 2, don't guess — come back and set this once
+                      # the real use case is clear.
+  signals: {}          # Same as above: left empty. Don't invent domain signal words —
+                       # wait for classification_misses.jsonl to grow a real
+                       # vocabulary, then fill this in.
+
+materialize_tree: {}   # Left empty: no collection is currently allowed to have files
+                        # moved automatically.
+
+# Confidence-tier thresholds for the signals fallback scorer (see classify.py).
+# top_ratio = hits for the best-scoring category / len(its signal list)
+# margin  = best score / second-best score (inf if no runner-up)
+confidence_thresholds:
+  high_min_ratio: 0.4
+  high_min_margin: 2.0
+  # A single incidental keyword mention isn't enough to override
+  # "Uncategorized" for broad/multi-topic documents — require at least this
+  # many distinct signal terms before reporting anything other than "none".
+  min_hits: 2

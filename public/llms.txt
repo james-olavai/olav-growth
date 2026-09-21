@@ -1,0 +1,38 @@
+# Project Knowledge Index (llms.txt)
+
+> Standard summary and navigational index for LLM crawlers (Perplexity, ChatGPT, Claude, Gemini).
+
+## Overview
+# BUSINESS-SOT: 品牌大脑与单一真相源 (Single Source of Truth)
+
+> 本文档由 `brand-core` Onboarding 引擎自动从源材料初始化生成。
+> 数据来源：<Personal IP Profile>（采集日期：2026-09-20）
+> 本文档是全营销流水线的**唯一底层事实源**，所有选题评分、文案撰写与分发卡片均严格锚定于此。
+
+---
+
+## 1. Product Core (产品核心与业务事实)
+* **产品/服务全称**：Olav
+* **一句话定位 (Tagline)**：Olav AI：面向开发者与成长型团队的开源 Agentic 营销内容流水线。通过单一事实源(SOT)、3段式去油提示词链、3:4视觉卡片生成与私有化发布网关，杜绝AI假大空套话与事实幻觉，实现小红书、LinkedIn、X 等全域确定性增长。
+* **核心业务模式**：个人 IP / 咨询服务
+* **核心价值主张 (Value Proposition)**：
+- **实战经验分享**：解决实际操作阻碍，提供明确执行反馈。
+- **踩坑复盘指南**：解决实际操作阻碍，提供明确执行反馈。
+- **垂直领域方法论**：解决实际操作阻碍，提供明确执行反馈。
+* **已验证事实与硬核数据 (Proof Points)**：
+  - 核心架构经过生产环境打磨，具备极高的稳定性与可靠性。
+  - 数据与文案 100% 来源可追溯，坚决杜绝大模型营销幻觉。
+* **边界与不承诺清单 (Out of Scope)**：
+  - 不做毫无事实根据的夸大吹嘘。
+  - 不做违反平台风控规则的强行机械群控发布。
+
+---
+
+## 2. Target ICP & Pain Points (目标画像与高频痛点)
+* **理想客户画像 (ICP)**：
+  - **
+
+## Key Topics & Documentation
+- [/](llms-full.txt): Complete project facts, architecture, and FAQ
+- [Proof & Use Cases](#proof-points): Verified customer metrics and benchmarks
+- [Safety & Rules](#brand-voice): Compliance boundaries and usage scope

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1440" width="1080" height="1440">
+    <defs>
+        <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0d1117"/>
+            <stop offset="100%" stop-color="#161b22"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Canvas Background -->
+    <rect width="1080" height="1440" fill="url(#bg-grad)"/>
+
+    <!-- Decorative Top Wave / Grid -->
+    <circle cx="1080" cy="0" r="400" fill="#58a6ff" fill-opacity="0.06"/>
+    <circle cx="0" cy="1440" r="350" fill="#f78166" fill-opacity="0.04"/>
+
+    <!-- ================= TOP SAFE ZONE (0-210px) ================= -->
+    <!-- Brand / Badge Header (Safe from device status bar) -->
+    <g transform="translate(80, 180)">
+        <rect width="160" height="42" rx="21" fill="#58a6ff" fill-opacity="0.15" stroke="#58a6ff" stroke-width="1.5"/>
+        <text x="80" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="20" font-weight="600" fill="#58a6ff" text-anchor="middle">实战避坑</text>
+        <text x="920" y="27" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="20" font-weight="500" fill="#8b949e" text-anchor="end">01/05</text>
+    </g>
+
+    <!-- ================= ACTIVE CENTER (210-1180px) ================= -->
+    <!-- Big Poster Headline (大字报核心痛点) -->
+    <g transform="translate(80, 320)">
+        <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="64" font-weight="800" fill="#f0f6fc" line-height="1.2">
+            <tspan x="0" y="0">AI海报总被喷假大空？3招打造</tspan>
+            <tspan x="0" y="82" fill="#f78166">高留存3:4视觉卡片</tspan>
+        </text>
+    </g>
+
+    <!-- Subtitle / Hook context -->
+    <text x="80" y="520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="30" font-weight="400" fill="#8b949e">
+        拒绝千篇一律的AI塑料感 · 打造爆款首屏停留
+    </text>
+
+    <!-- Divider -->
+    <line x1="80" y1="580" x2="1000" y2="580" stroke="#30363d" stroke-width="2"/>
+
+    <!-- Structured Content Blocks -->
+    
+        <g transform="translate(80, 660)">
+            <rect width="920" height="92" rx="16" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+            <circle cx="48" cy="46" r="18" fill="#58a6ff" fill-opacity="0.15"/>
+            <text x="48" y="53" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="20" font-weight="bold" fill="#58a6ff" text-anchor="middle">1</text>
+            <text x="90" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="28" font-weight="500" fill="#f0f6fc">单一事实源锚定，论据清晰可追溯</text>
+        </g>
+        
+
+        <g transform="translate(80, 775)">
+            <rect width="920" height="92" rx="16" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+            <circle cx="48" cy="46" r="18" fill="#58a6ff" fill-opacity="0.15"/>
+            <text x="48" y="53" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="20" font-weight="bold" fill="#58a6ff" text-anchor="middle">2</text>
+            <text x="90" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="28" font-weight="500" fill="#f0f6fc">注入人类情绪与口语瑕疵感，去油去爹味</text>
+        </g>
+        
+
+        <g transform="translate(80, 890)">
+            <rect width="920" height="92" rx="16" fill="#161b22" stroke="#30363d" stroke-width="2"/>
+            <circle cx="48" cy="46" r="18" fill="#58a6ff" fill-opacity="0.15"/>
+            <text x="48" y="53" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="20" font-weight="bold" fill="#58a6ff" text-anchor="middle">3</text>
+            <text x="90" y="54" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="28" font-weight="500" fill="#f0f6fc">遵循3:4黄金构图与安全边距，适配XHS/IG/Pinterest</text>
+        </g>
+        
+
+    <!-- ================= BOTTOM SAFE ZONE (1180-1440px) ================= -->
+    <!-- Soft CTA / Funnel Hook (Above bottom reaction buttons) -->
+    <g transform="translate(80, 1220)">
+        <rect width="920" height="72" rx="14" fill="#161b22" stroke="#58a6ff" stroke-width="2" stroke-dasharray="8 6"/>
+        <text x="460" y="45" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', PingFang SC, sans-serif" font-size="24" font-weight="600" fill="#58a6ff" text-anchor="middle">
+            👉 评论区回复【卡片】领取 10 套大字报排版模板
+        </text>
+    </g>
+</svg>

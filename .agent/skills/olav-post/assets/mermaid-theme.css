@@ -1,0 +1,46 @@
+/* Mermaid Transparent Theme — no background fills, dark strokes only */
+
+/* Make node backgrounds fully transparent */
+.node rect, .node circle, .node polygon, .node ellipse, .node path,
+.cluster rect, .label-container {
+  fill: transparent !important;
+  stroke: #00d4aa !important;
+  stroke-width: 2px !important;
+}
+
+/* Text — bright on our dark slide background */
+.nodeLabel, .edgeLabel, .label, .node text, .edgeLabel text, .label text {
+  fill: #ccccdd !important;
+  font-family: 'Inter', 'Noto Sans CJK SC', sans-serif !important;
+  font-size: 15px !important;
+}
+
+/* Edges */
+.edgePath .path, .flowchart-link {
+  stroke: #00d4aa88 !important;
+  stroke-width: 2px !important;
+}
+.arrowheadPath {
+  fill: #00d4aa !important;
+  stroke: #00d4aa !important;
+}
+
+/* Clusters — subtle outline only */
+.cluster rect {
+  fill: transparent !important;
+  stroke: #333366 !important;
+  stroke-dasharray: 4 4 !important;
+}
+.cluster text {
+  fill: #7777aa !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+}
+
+/* Sequence */
+.actor { fill: transparent !important; stroke: #00d4aa !important; }
+.messageLine0, .messageLine1 { stroke: #00d4aa88 !important; }
+
+/* Background — MUST be transparent for dark slides */
+body, #container, .mermaid { background: transparent !important; }
+svg { background: transparent !important; }

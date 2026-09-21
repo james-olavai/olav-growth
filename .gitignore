@@ -1,0 +1,32 @@
+# Environment & Secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+venv/
+.venv/
+
+# Deployment & runtime logs
+*.log
+deploy/postiz/data/
+deploy/browser/chrome-profile/
+tools/union-search/responses/
+tools/union-search/search_logs/
+tools/union-search/downloads/
+
+# OS & Editor artifacts
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Proprietary assets & local course materials
+courses/
+.agent/skills/vela-xhs/

@@ -1,0 +1,90 @@
+services:
+  # ==============================================================================
+  # 1. Postiz Core Stack (Social Media Management & MCP Server)
+  # ==============================================================================
+  postiz:
+    image: ghcr.io/gitroomhq/postiz-app:${POSTIZ_IMAGE_TAG:-v2.11.3}
+    container_name: postiz
+    restart: unless-stopped
+    ports:
+      # Expose on localhost for local Python automation scripts / CLI
+      - "127.0.0.1:5000:5000"
+    env_file:
+      - .env
+    environment:
+      # Optional: Route outbound API traffic through encrypted proxy if enabled
+      HTTP_PROXY: ${HTTP_PROXY:-}
+      HTTPS_PROXY: ${HTTPS_PROXY:-}
+    volumes:
+      - postiz-config:/config/
+      - postiz-uploads:/uploads/
+    depends_on:
+      postiz-postgres:
+        condition: service_healthy
+      postiz-redis:
+        condition: service_healthy
+
+  postiz-postgres:
+    image: postgres:15-alpine
+    container_name: postiz-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postiz}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postiz_password_change_me}
+      POSTGRES_DB: ${POSTGRES_DB:-postiz_db}
+    volumes:
+      - postiz-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postiz} -d ${POSTGRES_DB:-postiz_db}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  postiz-redis:
+    image: redis:7-alpine
+    container_name: postiz-redis
+    restart: unless-stopped
+    volumes:
+      - postiz-redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ==============================================================================
+  # 2. Inbound Encrypted Gateway (Cloudflare Tunnel - 必须)
+  # 强制通过权威公网 HTTPS (https://postiz.yourdomain.com) 访问。
+  # 彻底解决海外社媒 OAuth 回调及浏览器跨域 Cookie 限制。
+  # 无需公网 IP、无需路由器端口映射、全自动全托管 HTTPS。
+  # ==============================================================================
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: postiz-cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - postiz
+
+  # ==============================================================================
+  # 3. Outbound Encrypted Proxy (Gost / Clash / Upstream Forwarder - Egress)
+  # Allows Postiz to reliably communicate with overseas APIs (X, LinkedIn, Meta, Reddit).
+  # Start with: docker compose --profile proxy up -d
+  # ==============================================================================
+  outbound-proxy:
+    image: gogost/gost:latest
+    container_name: postiz-outbound-proxy
+    restart: unless-stopped
+    # Listens on local container port 7890, forwards through your encrypted upstream proxy
+    command: -L=http://:7890 -F=${UPSTREAM_ENCRYPTED_PROXY:-socks5://127.0.0.1:1080}
+    ports:
+      - "127.0.0.1:7890:7890"
+    profiles:
+      - proxy
+      - full
+
+volumes:
+  postiz-config:
+  postiz-uploads:
+  postiz-db-data:
+  postiz-redis-data:
